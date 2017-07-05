@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mia Power Station</title>
+    <link rel="stylesheet" href="kiosk.css">
+</head>
+<body>
+    <a href="#" onclick="return false;" disabled style="color: #999; cursor: not-allowed;">回到主畫面</a>
+    <hr>
+    <ol class="steps">
+        <li>登入</li>
+        <li>選擇空槽</li>
+        <li>放回電池</li>
+        <li class="active">費用計算</li>
+        <li>歸還完成</li>
+    </ol>
+    <hr>
+    <form action="return_done.html">
+        <div>
+            <h1>本次訂單 <strong style="color: #f00;">29AD9-C9</strong> 明細</h1>
+            <p>本次租用開始時間為：<strong style="color: #f00;">2017-07-03 15:30</strong></p>
+            <p>本次租用放回時間為：<strong style="color: #f00;">2017-07-03 18:33</strong></p>
+            <hr>
+            <p>總租用時間：<strong>3小時3分</strong> <small>(6 個計費時段)</small></p>
+            <p>租金：6 時段 x 10/時段 = <strong>NTD 60</strong></p>
+            <p>折扣：試營運免費 - NTD 60</p>
+            <p>應付金額： NTD 0</p>
+            <hr>
+            <button disabled>使用一卡通靠卡付款</button>
+            <button>完成結帳</button>
+        </div>
+    </form>
+</body>
+</html>

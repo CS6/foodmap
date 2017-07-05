@@ -1,0 +1,104 @@
+* {
+        margin: 0;
+    padding: 0;
+
+}
+
+body {
+    /*background: #222;*/
+}
+
+ol.steps li.active {
+    font-weight: 700;
+    color: #f00;
+}
+
+
+.container {
+    position: relative;
+    width: 960px;
+    height: 720px;
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+}
+
+.container ul.index {
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+.container ul.index li {
+    display: block;
+    padding: 2rem;
+    min-width: 300px;
+    background: #eee;
+    border: 1px solid #999;
+    margin: 2rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
+
+.container ul.index li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.slot_container {
+    padding: 1rem;
+    width:90%;
+}
+
+.slot_container .slot {
+    display: block;
+    float: left;
+
+    border:1px solid #ccc;
+    margin: 1rem 2rem;
+    width: 25%;
+    padding: 1rem;
+}
+
+.await_container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 1.2rem;
+
+    border-radius: 1rem;
+
+    background: #efefef;
+    padding: 2rem 1rem;
+}
+
+.await_container h1 {
+    margin: 1rem 0;
+}
+
+.await_container strong {
+    font-size: 3rem;
+}
+
+.done_container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+
+    border-radius: 1rem;
+
+    background: #efefef;
+    padding: 2rem 1rem;
+}
+
+.done_container h1 {
+    margin: 1rem 0;
+    font-size: 3rem;
+}
+
+.done_container strong {
+    font-size: 1.8rem;
+}
