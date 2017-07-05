@@ -36,7 +36,7 @@ Vue.component "await-component",
 
         self = @
 
-        $.ajax
+        jQuery.ajax
             url: "http://127.0.0.1:3000/rentals"
             type: "POST"
             contentType: "application/json; charset=utf-8"
@@ -89,7 +89,7 @@ Vue.component "select-component",
     mounted: ->
         self = @
 
-        $.getJSON("http://127.0.0.1:3000/server/slots").done (data) ->
+        jQuery.getJSON("http://127.0.0.1:3000/server/slots").done (data) ->
             data.result.SlotStatusList.map (s) -> self.slots.push s
 
 # modal component
@@ -113,7 +113,7 @@ Vue.component "login-component",
         checkLogin: ->
             self = @
 
-            $.ajax
+            jQuery.ajax
                 url: "http://127.0.0.1:3000/user/session"
                 type: "POST"
                 contentType: "application/json; charset=utf-8"
