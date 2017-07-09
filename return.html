@@ -1,46 +1,236 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- page_registration -->
 <head>
-    <meta charset="UTF-8">
-    <title>Mia Power Station</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kule.lazy/3.1.161002/css/kule-lazy.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kule.lazy/3.1.161002/css/kule-theme-default.min.css">
-    <link rel="stylesheet" href="kiosk.css">
-    <script src="https://unpkg.com/vue"></script>
+<title></title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="author" content="">
+<meta name="description" content="">
+
+<!-- FB OG tags -->
+<meta property="og:site_name" content="" />
+<meta property="og:locale" content="zh_TW" />
+<!--  <meta name="fb:app_id" content="144219216008720"> -->
+
+<!-- other Meta tags -->
+
+
+
+<!-- Favicon -->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="http://miapower.tw/assets/mvp/favicon.ico"> -->
+
+<!-- Web Fonts -->
+<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/style.css">
+
+<!-- CSS Header and Footer -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/headers/header-default.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/footers/footer-v1.css">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/plugins/animate.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/miapower/plugins/swiper/swiper.min.css">
+<link rel="stylesheet" href="http://miapower.tw/js/plugin/sweetalert/sweetalert.css">
+
+<!-- CSS Page Style -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/pages/page_log_reg_v1.css">
+
+<!-- CSS Theme -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/theme-colors/default.css" id="style_color">
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/theme-skins/dark.css">
+
+<!-- CSS Customization -->
+<link rel="stylesheet" href="http://miapower.tw/assets/unify/css/custom.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/miapower/css/header.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/miapower/css/footer.css">
+<link rel="stylesheet" href="http://miapower.tw/assets/miapower/css/login.css">
+<link rel="stylesheet" href="http://miapower.tw/css/miapower/importer.css">
+
+<!-- CSS Page Style -->
+
+
+<!-- CSS Page Block -->
+<style type="text/css">
+.sub-panel .panel-form .btn {
+  float: none !important;
+}
+</style>
+
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="columns-12">
-            <div class="col-2">
-                <a href="index.html" :disabled="currentView == 'await-component' " class="btn color-secondary size-lg">回到主畫面</a>
-            </div>
 
-            <div class="col-10">
-                <ul class="step-sm">
-                    <li class="step-sm-item" :class="{ active: currentView == 'login-component' }">會員登入</li>
-                    <li class="step-sm-item" :class="{ active: currentView == 'select-component' }">選擇空槽</li>
-                    <li class="step-sm-item" :class="{ active: currentView == 'await-component' }">放回電池</li>
-                    <li class="step-sm-item" :class="{ active: currentView == 'fee-component' }">費用計算</li>
-                    <li class="step-sm-item" :class="{ active: currentView == 'done-component   ' }">歸還完成</li>
-                </ul>
-            </div>
-        </div>
-        <br>
+<div class="wrapper">
 
-        <div id="app">
-            <component :is="currentView" :transition="currentViewTransaction" transition-mode="out-in"></component>
+
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+
+<div class="menu-panel full-image-cover">
+  <div id="app">
+
+    <div class="row" style="margin: 15px auto 0; max-width: 942px;">
+      <div class="col-xs-3">
+        <a class="btn-u home-btn btn-u-dark" style="margin-top: 6px;" href="/index.html">回主畫面 <i class="icon-home icons"></i></a>
+      </div>
+      <div class="col-xs-9">
+        <div class="timeline" v-bind:class="{ show: mounted }">
+          <div class="row">
+            <div class="col-xs-2 timeline-step" v-bind:class="{ 'col-xs-offset-2': (index === 0), active: (index == position), done: (index <= position) }" v-for="(step, index) in steps">
+              <div class="timeline-icon">
+                <i class="icons" v-bind:class="step.icon" aria-hidden="true"></i>
+              </div>
+              <h2 class="timeline-text">{{ step.title }}</h2>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Insert this line above script imports  -->
+    <div class="sub-panel" v-bind:class="{ show: mounted }">
+      <form data-toggle="validator" class="input-phone-wrapper panel-form" v-bind:class="{ show: (position == 0) }">
+        <div class="form-group">
+          <label for="phone">您的手機號碼</label>
+          <input type="text" pattern="^[0-9]+$" class="form-control" v-model="phone" id="phone" data-error="格式錯誤，只需填寫數字" required>
+          <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label for="phone">您的個人密碼</label>
+          <input type="password" pattern="^[0-9]+$" class="form-control" v-model="password" id="phone" data-error="格式錯誤，只需填寫數字" required>
+          <div class="help-block with-errors"></div>
+        </div>
+        <button type="submit" class="btn btn-success" style="margin-top: 1em;" v-on:click.prevent="loginByPhone">登入 <i class="icon-paper-plane icons"></i></button>
+      </form>
+
+      <div class="battery-list panel-form" v-bind:class="{ show: (position == 1) }">
+        <h1>選擇空槽</h1>
+        <div class="row">
+          <div class="col-xs-4" v-for="( battery, index ) in batterys">
+            <div class="battery" v-on:click="chooseBattery(index)" v-bind:class="{ empty: battery.exist }">
+              <div class="battery-id">
+                {{ index + 1 }}
+              </div>
+              <h1 v-if="battery.exist">{{ (battery.full) ? '電池已充飽' : '電池充電中' }}</h1>
+              <h1 v-else>電池已借出</h1>
+              <img v-if="battery.exist && battery.full" class="battery-icon" src="http://miapower.tw/assets/miapower/images/battery_full.png" alt="" />
+              <img v-else-if="battery.exist" class="battery-icon" src="http://miapower.tw/assets/miapower/images/battery_pin.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="battery-info panel-form" v-bind:class="{ show: (position == 2) }">
+        <h1>請放入電池</h1>
+        <div class="slot-number">
+          {{ selectedBattery + 1 }}
+        </div>
+        <p>
+          請把電池放回下方的 <b>{{ selectedBattery + 1 }}</b> 號槽<br>
+          系統偵測到放回後會自動鎖上，倒數 {{ countedown }} 秒<br>
+        </p>
+        <p style="color: #f00">請不要離開，歸還尚未完成，請等到出現費用結算畫面。</p>
+        <div id="countdown-container"></div>
+      </div>
+
+      <div class="battery-info panel-form" v-bind:class="{ show: (position == 3) }">
+        <h1>本次訂單 <strong style="color: #f00;">29AD9-C9</strong> 明細</h1>
+        <p>本次租用開始時間為：<strong style="color: #f00;">2017-07-06 15:30</strong></p>
+        <p>本次租用放回時間為：<strong style="color: #f00;">2017-07-06 16:40</strong></p>
+        <hr>
+        <p>總租用時間：<strong  style="color: #f00;">1小時10分</strong> <small>(3 個計費時段)</small></p>
+        <p>租金：3 時段 x 10/時段 = <strong  style="color: #f00;">NTD 30</strong></p>
+        <p>折扣：試營運免費 - NTD 30</p>
+        <p>應付金額： <strong  style="color: #f00;">NTD 0</strong></p>
+        <hr>
+        <button disabled class="btn">使用一卡通靠卡付款</button>
+        <button class="btn size-lg color-success" v-on:click.prevent="goDone">完成結帳</button>
+        <div id="countdown-container"></div>
+      </div>
+
+      <div class="finished-info panel-form" v-bind:class="{ show: (position == 4) }">
+          <h1>本次訂單 <strong style="color: #f00;">29AD9-C9</strong> 已成功歸還</h1>
+            <hr>
+            <h2>租用資訊</h2>
+            <p>本次租用開始時間為：<strong style="color: #f00;">2017-07-03 15:30</strong></p>
+            <p>本次租用放回時間為：<strong style="color: #f00;">2017-07-03 16:40</strong></p>
+            <br>
+            <p>總租用時間：<strong>1小時10分</strong> <small>(3 個計費時段)</small></p>
+            <p>租金：3 時段 x 10/時段 = <strong>NTD 60</strong></p>
+            <p>折扣：試營運免費 - NTD 30</p>
+            <p>應付金額： NTD 0</p>
+            <hr>
+            <p>發票號碼：<span style="color: #f00;">(本次為零元帳單，無發票產生)</span></p>
+            <p>(若有非零元金額，我們將會開立電子發票並寄至您的電子郵件信箱)</p>
+            <p><small>您也可以在機台的「會員專區」裡查詢本次交易的相關細節，若有問題歡迎您和我們的客服詢問。</small></p>
+        <hr style="margin-top: 33px;">
+        <div class="row">
+          <div class="col-xs-12">
+            <a href='/index.html' class="btn btn-u btn-u-dark btn-brd btn-block" style="margin-top: 0.6em;">回首頁 <i class="icon-home icons"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
+
+
+</div><!--/wrapper-->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
-    <script src="http://coffeescript.org/v1/browser-compiler/coffee-script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="http://miapower.tw/assets/unify/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="http://miapower.tw/assets/unify/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/unify/plugins/smoothScroll.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="http://miapower.tw/assets/unify/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="http://miapower.tw/assets/unify/js/app.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/unify/js/plugins/style-switcher.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="http://miapower.tw/js/plugin/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="http://miapower.tw/assets/miapower/plugins/validator.min.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+    StyleSwitcher.initStyleSwitcher();
+  });
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="return.coffee" type="text/coffeescript"></script>
+<!--[if lt IE 9]>
+<script src="../../assets/unify/plugins/respond.js"></script>
+<script src="../../assets/unify/plugins/html5shiv.js"></script>
+<script src="../../assets/unify/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+<!-- JS Page Level -->
+
+<script type="text/javascript" src="return.js"></script>
+
+
 
     <!-- Insert this line after script imports -->
     <script>if (window.module) module = window.module;</script>
+
 </body>
 </html>
