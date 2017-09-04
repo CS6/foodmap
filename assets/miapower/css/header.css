@@ -1,0 +1,44 @@
+.header .dropdown > a {
+  padding-right: 30px !important;
+}
+.header .logo:hover {
+  text-decoration: none;
+}
+.header .logo-outline {
+  margin: 12px;
+  margin-left: 0;
+  padding: 6px;
+  font-size: 1.6em;
+  text-align: center;
+  color: gray;
+  border: 1px solid rgb(173, 173, 173);
+  display: block;
+  width: 6.5em;
+}
+.header .container .logo {
+  float: left;
+  margin-top: 8px;
+}
+.navbar-collapse .container .logo {
+  margin-top: 12px;
+}
+.header .container .nav.navbar-nav {
+  margin-top: 43px;
+}
+.header .nav.navbar-nav li a {
+  cursor: pointer;
+}
+@media (max-width: 991px) {
+  .header .navbar-toggle {
+    margin-bottom: 12px;
+  }
+  .header .topbar {
+    margin-bottom: 18px;
+  }
+  .header .container .logo {
+    margin-top: 9px;
+  }
+  .header .container .nav.navbar-nav {
+    margin-top: 0;
+  }
+}

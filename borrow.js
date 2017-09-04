@@ -64,7 +64,7 @@ var app = new Vue({
           });
         }
 
-        this.userToken = msg.UserSession.token;
+        this.userToken = msg.result.UserSession.token;
 
         jQuery.getJSON("http://127.0.0.1:3000/server/slots").done(function (data) {
 

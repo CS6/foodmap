@@ -1,0 +1,144 @@
+.menu-panel {
+  overflow: auto;
+  overflow-x: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: #786861;
+  background-image: linear-gradient(-68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 57%, rgba(255, 255, 255, 0.19) 57%, rgba(251, 251, 251, 0.12) 50%), url('/assets/miapower/images/device_cover.jpg');
+  background-position: 50% 0%;
+  background-size: cover;
+  .language-chooser {
+    float: right;
+    .btn {
+      background: transparent;
+      border: none;
+      color: white !important;
+      margin: 13px 12px;
+      font-size: 1.6em;
+      &:hover, &:focus, &:active {
+        background: #5c7d6a !important;
+      }
+    }
+    .dropdown-menu {
+      min-width: 140px;
+      left: 19px;
+      top: 61px;
+      background: #efefcf;
+      a {
+        padding: 12px 15px;
+        font-size: 1.5em;
+        color: #4d5454;
+        &:active, &:hover {
+          background: #ffffd1;
+        }
+      }
+    }
+  }
+  .logo {
+    float: left;
+    padding: 2em;
+    text-transform: uppercase;
+    font-weight: 100;
+    width: 42%;
+    text-align: center;
+    margin-top: 20.5em;
+    animation: fadein 0.8s backwards;
+    animation-timing-function: ease-in;
+    h1 {
+      font-size: 6em;
+      color: rgba(255, 255, 255, 0.72);
+      text-shadow: 0 0 19px rgba(0, 0, 0, 0.28);
+    }
+  }
+  .menu-list {
+    list-style: none;
+    padding-left: 45%;
+    li {
+      &:first-child {
+        margin-top: 7.3em;
+      }
+      // > div {
+      //   position: relative;
+      // }
+      // > div:after {
+      //   background: transparent;
+      //   content: '';
+      //   display: block;
+      //   width: 100%;
+      //   height: 115px;
+      //   position: absolute;
+      //   top: 0;
+      //   right: 0;
+      //   opacity: 0;
+      //   transform: scale(1);
+      //   transition: 2s transform;
+      //   z-index: 1000000000000;
+      // }
+      // > div.active:after {
+      //   background: white;
+      //   opacity: 1;
+      //   transform: scale(15);
+      // }
+    }
+    @for $i from 1 to 6 {
+      li:nth-child(#{$i}) .menu-item { animation-delay: ($i - 1) * 0.08s; }
+    }
+    .menu-item {
+      padding: 1.3em 0 1.3em 3.6em;
+      margin: 1.2em 0;
+      border: 1px solid rgba(0, 0, 0, 0.13);
+      animation: slidein 0.4s backwards;
+      animation-timing-function: cubic-bezier(0.76, 0.05, 0.7, 1.45);
+      animation-timing-function: cubic-bezier(0, 0, 0.76, 1.32);
+      background: rgba(255, 255, 255, 0.83);
+      box-shadow: 0 2px 19px 1px rgba(0, 0, 0, 0.46);
+      h1 {
+        i {
+          font-size: 1.5em;
+          margin-right: 17px;
+          color: black;
+        }
+      }
+      &.out {
+        animation-name: slideout;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateX(5em);
+  }
+  to {
+  }
+}
+@keyframes slideout {
+  from {
+  }
+  to {
+    opacity: 0;
+    transform: translateX(5em);
+  }
+}
+@keyframes slideinup {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+  }
+}

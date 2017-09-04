@@ -1,0 +1,50 @@
+.menu-panel {
+  .panel-menu {
+    margin-top: 1em;
+    padding: 2em 0.3em 3em;
+    background: transparent;
+    box-shadow: none;
+  }
+  .square-menu-list {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    .square-menu-item {
+      display: inline-block;
+      width: 28%;
+      margin: 2.5%;
+      background: white;
+      box-shadow: 0 2px 3px #efefef;
+      transition: 0.2s all;
+      &:hover {
+        box-shadow: 0 11px 33px -5px rgba(0, 0, 0, 0.25);
+        transform: translateY(-2px);
+      }
+      a {
+        text-decoration: none !important;
+        display: block;
+        overflow: hidden;
+        height: 160px;
+      }
+      i {
+        display: block;
+        font-size: 2.7em;
+        margin: 52px 0 14px;
+        color: #b5b5b9;
+      }
+      span {
+        font-size: 1.2em;
+        color: #5c5c65;
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+  }
+}

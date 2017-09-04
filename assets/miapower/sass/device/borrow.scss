@@ -1,0 +1,131 @@
+.sub-panel {
+  .borrow-info {
+    padding: 3em 8.5em 6em;
+    text-align: center;
+    .btn {
+      float: none;
+      margin-top: 0;
+    }
+    .price-info {
+      margin-top: 2.6em;
+      text-align: center;
+      i {
+        vertical-align: top;
+        margin-right: 7px;
+        position: relative;
+        top: 7px;
+        font-size: 1.8em;
+        color: #404654;
+      }
+      b {
+        font-size: 6.3em;
+        line-height: 1;
+        color: #404654;
+      }
+      span {
+        color: #c5c5c5;
+        font-size: 1.3em;
+        margin-left: 3px;
+      }
+    }
+    ul {
+      font-size: 1.6em;
+      margin: 2em 149px 0;
+      text-align: center;
+      li {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  .battery-list {
+    margin-top: 1em;
+    padding: 1em 2.3em 3em;
+    background: transparent;
+    box-shadow: none;
+    > h1 {
+      margin-bottom: 1.3em;
+    }
+    .battery {
+      background: #ffffff;
+      box-shadow: 0 2px 3px #efefef;
+      overflow: hidden;
+      padding: 6px 11px 8px;
+      margin-bottom: 2.3em;
+      transition: 0.15s box-shadow ease-in-out;
+      &.empty {
+        background: rgba(226, 226, 232, 0.63);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.03) inset;
+        h1 {
+          color: #858282;
+        }
+        .battery-id {
+          background: #ffffff;
+        }
+      }
+      &:not(.empty):hover {
+        box-shadow: 0 6px 22px -3px rgba(0, 0, 0, 0.16);
+      }
+      .battery-id {
+        $battery_id_size: 30px;
+        float: left;
+        width: $battery_id_size;
+        height: $battery_id_size;
+        line-height: $battery_id_size;
+        margin-top: 2px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 1.2em;
+        color: #929292;
+        background: #f7f7f9;
+        border: 1px solid #efefef;
+      }
+      h1 {
+        font-size: 1.3em;
+        margin: 0;
+        margin-left: 2.5em;
+        color: #4e5458;
+      }
+      .battery-icon {
+        width: 45px;
+        position: absolute;
+        right: 16px;
+        top: -5px;
+        transform: rotate(2deg);
+        opacity: 0.9;
+      }
+    }
+  }
+  .battery-info {
+    margin-top: 2em;
+    padding: 4em 8.5em 6em;
+    overflow: auto;
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.8em;
+    }
+    p {
+      font-size: 2em;
+      color: #848484;
+      text-align: center;
+    }
+    .slot-number {
+      font-size: 8em;
+      text-align: center;
+      width: 150px;
+      height: 150px;
+      line-height: 145px;
+      border-radius: 50%;
+      color: #32383c;
+      margin: 25px auto 25px;
+    }
+  }
+  .icon-license {
+    position: fixed;
+    bottom: 0;
+    color: #d1d1d2;
+    a {
+      color: #a0dddd;
+    }
+  }
+}
