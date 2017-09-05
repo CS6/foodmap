@@ -78,7 +78,7 @@ var app = new Vue({
               closeOnConfirm: false,
             },
             function(isConfirm){
-              open('/zh/device', '_self');
+              open('/', '_self');
             });
           }
         }.bind(this),
@@ -92,7 +92,7 @@ var app = new Vue({
             closeOnConfirm: false,
           },
           function(isConfirm){
-            open('/zh/device', '_self');
+            open('/', '_self');
           });
         }
       });
