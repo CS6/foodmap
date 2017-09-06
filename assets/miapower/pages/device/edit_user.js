@@ -1,3 +1,8 @@
+//if(!localStorage.getItem('userToken')) document.location.href="/user/login.html";
+var parts = document.cookie.split("userToken=");
+var userToken = (parts.length == 2) ? parts.pop().split(";").shift() : '';
+if(!userToken) document.location.href='/user/login.html';
+
 $.fn.serializeObject = function() {
       var o = {};
       var a = this.serializeArray();
@@ -17,13 +22,17 @@ $.fn.serializeObject = function() {
 var isSend = false;
 $('#editUser').validator().submit(function(e) {
   var data = $(this).serializeObject();
+  console.log('data=>', data)
   if (!e.isDefaultPrevented()) {
     if (isSend) return false;
     isSend = true;
     $.ajax({
-      url: '/api/user/edit',
-      type: 'POST',
-      data: data
+      url: 'http://127.0.0.1:3000/user',
+      type: 'PATCH',
+      data: data,
+      headers: {
+        UserToken: localStorage.getItem('userToken')
+      },
     })
     .done(function() {
       swal({
@@ -33,7 +42,7 @@ $('#editUser').validator().submit(function(e) {
         confirmButtonText: "確定",
         closeOnConfirm: true,
       }, function () {
-        open('/zh/device', '_self');
+        //open('/zh/device', '_self');
       });
     })
     .fail(function() {
