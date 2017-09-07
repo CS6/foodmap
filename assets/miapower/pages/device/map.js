@@ -151,10 +151,19 @@ var app = new Vue({
       })
     },
     swalInfo: function (idx) {
-      var item = $('.loc-slider .loc-item[data-idx='+idx+']');
-      var itemOffsetTop = item.offset().top;
-      console.log('item=>', item)
-      console.log('itemOffsetTop=>', itemOffsetTop)
+      const data = this.stops[idx]
+      swal({
+        html: true,
+        title: "站點資訊",
+        text  :  "機台名稱: " + data.name + 
+        "<br>地點: " + data.address +
+        "<br>可歸還的槽位: " + data.status.emptySlots + 
+        "<br>可租借的電池數: " + data.status.availableBatteries,
+        type: "info",
+        confirmButtonColor: "#5bc0de",
+        confirmButtonText: "關閉",
+        closeOnConfirm: false,
+      })
     },
     setStopsInMap: function (locations) {
       $(locations).each(function(i, e){
@@ -178,7 +187,6 @@ var app = new Vue({
                 this.scrollToStop(i);
               }.bind(this),
             },
-            title: '<h1>test!!!!</h1>',
           }]
         });
       }.bind(this));
