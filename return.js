@@ -34,11 +34,20 @@ var app = new Vue({
     userToken: "",
     rentalStart: "",
     todayDate: "",
-    rentalId: ""
+    rentalId: "",
+    start: "",
   },
   methods: {
-    goDone: function(e) {
+    goDone: function (e) {
       this.position++;
+    },
+    
+    formatDate: function (date) {
+      return moment(date).format('YYYY-MM-DD hh:mm')
+    },
+
+    diffDate: function (date) {
+      return moment(moment(new Date()).format('YYYY-MM-DD hh:mm')).diff(date)/1000
     },
 
     loginByPhone: function (e) {
@@ -119,7 +128,46 @@ var app = new Vue({
       setTimeout(function () {
         this.position++;
       }.bind(this), 5000);
+
+      this.settleAccounts();
     },
+    settleAccounts: function () {
+      const self = this;
+      $.ajax({
+        url: 'http://127.0.0.1:3000/user/rentals/current',
+        type: 'GET',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          UserToken: 'test'
+        },
+      })
+      .done(function(msg) {
+        if(typeof msg.meta != 'undefined' && msg.meta.status !== 201) {
+          return swal({
+            title: "查詢失敗",
+            text: "查詢失敗，請再重試一次",
+            type: "warning",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "重試",
+          });
+        }
+        self.rentalId = msg.result.RentalInfo.rentalId;
+        self.start = msg.result.RentalInfo.start;
+      })
+      .fail(function() {
+        swal({
+            title: "系統錯誤",
+            text: "系統內部發生錯誤，請再試一次",
+            type: "error",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "重試",
+          });
+      }.bind(this))
+      .always(function() {
+        this.isSubmit = false;
+      }.bind(this));
+    }
   },
 
   mounted: function () {
