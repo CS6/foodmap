@@ -1,4 +1,4 @@
-#miapower-kiosk-ui
+# miapower-kiosk-ui
 
 
 ## 系統需求
@@ -17,11 +17,17 @@ yarn
 npm start
 ```
 
-## 變異自定義 scss 
+## 編譯自定義 scss 
 
 ```
 npm build
 ```
+
+## 目前進度
+
+- 網頁沒按照流程圖的流程，需確認流程圖是否有更改
+
+- 流程未確認，所以登入後的 token 尚未儲存
 
 ## 網頁網址
 
