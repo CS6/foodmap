@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)./zh/device/ -->
+<html lang="en"><!--<![endif]--><!-- page_registration --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mia Station</title>
+
+<!-- Meta -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="author" content="">
+<meta name="description" content="">
+
+<!-- FB OG tags -->
+<meta property="og:site_name" content="">
+<meta property="og:locale" content="zh_TW">
+<!--  <meta name="fb:app_id" content="144219216008720"> -->
+
+<!-- other Meta tags -->
+<!-- Favicon -->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="./../assets/mvp/favicon.ico"> -->
+
+<!-- Web Fonts -->
+<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="./../assets/unify/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./../assets/unify/css/style.css">
+
+<!-- CSS Header and Footer -->
+<link rel="stylesheet" href="./../assets/unify/css/headers/header-default.css">
+<link rel="stylesheet" href="./../assets/unify/css/footers/footer-v1.css">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="./../assets/unify/plugins/animate.css">
+<link rel="stylesheet" href="./../assets/unify/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="./../assets/unify/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="./../assets/miapower/plugins/swiper/swiper.min.css">
+<link rel="stylesheet" href="./../assets/js/plugin/sweetalert/sweetalert.css">
+
+<!-- CSS Page Style -->
+<link rel="stylesheet" href="./../assets/unify/css/pages/page_log_reg_v1.css">
+
+<!-- CSS Theme -->
+<link rel="stylesheet" href="./../assets/unify/css/theme-colors/default.css" id="style_color">
+<link rel="stylesheet" href="./../assets/unify/css/theme-skins/dark.css">
+
+<!-- CSS Customization -->
+<link rel="stylesheet" href="./../assets/unify/css/custom.css">
+<link rel="stylesheet" href="./../assets/miapower/css/header.css">
+<link rel="stylesheet" href="./../assets/miapower/css/footer.css">
+<link rel="stylesheet" href="./../assets/miapower/css/login.css">
+<link rel="stylesheet" href="./../assets/miapower/css/importer.css">
+
+<!-- CSS Page Style -->
+
+
+<!-- CSS Page Block -->
+<style type="text/css">
+    .menu-panel .logo h1 {
+      font-size: 4em;
+      text-transform: none;
+      font-family: 'Braggadocio', Arial;
+ }
+</style>
+
+
+</head>
+
+<body>
+
+<div class="menu-panel full-image-cover">
+  <div id="app">
+
+    <div class="row" style="margin: 15px auto 0; max-width: 942px;">
+      <div class="col-xs-3">
+        <a class="btn-u home-btn btn-u-gray" href="/">回首頁 <i class="icon-home icons"></i></a>
+      </div>
+      <div class="col-xs-9">
+        <ol class="breadcrumb">
+          <li><a href="/user/menu.html">會員專區</a></li>
+          <li class="active">功能選單</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="sub-panel show">
+
+      <div class="panel-menu panel-form show">
+        <ul class="square-menu-list">
+          <li class="square-menu-item"><a href="./card.html"><i class="icon-credit-card icon"></i><span>管理卡片</span></a></li>
+          <li class="square-menu-item"><a href="./edit.html"><i class="icon-user icon"></i><span>修改會員資料</span></a></li>
+          <li class="square-menu-item"><a href="./history.html"><i class="icon-calendar icon"></i><span>租借紀錄查詢</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</div><!--/wrapper-->
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="./../assets/unify/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="./../assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./../assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="./../assets/unify/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="./../assets/unify/plugins/smoothScroll.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="./../assets/unify/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="./../assets/unify/js/app.js"></script>
+<script type="text/javascript" src="./../assets/unify/js/plugins/style-switcher.js"></script>
+<script type="text/javascript" src="./../assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="./../assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="./../assets/miapower/plugins/validator.min.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+    StyleSwitcher.initStyleSwitcher();
+  });
+</script>
+<!--[if lt IE 9]>
+<script src="../../assets/unify/plugins/respond.js"></script>
+<script src="../../assets/unify/plugins/html5shiv.js"></script>
+<script src="../../assets/unify/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+<!-- JS Page Level -->
+
+
+
+<script type="text/javascript">
+  //if(!localStorage.getItem('userToken')) document.location.href="/user/login.html";
+
+  var parts = document.cookie.split("userToken=");
+  var userToken = (parts.length == 2) ? parts.pop().split(";").shift() : '';
+  if(!userToken) document.location.href='/user/login.html';
+  console.log('userToken=>', userToken)
+  
+  $(document).ready(function(){
+    $('.menu-item').click(function(){
+      $('.menu-item').addClass('out');
+      setTimeout(function () {
+        open($(this).data('href'), '_self');
+      }.bind(this),300);
+    });
+  });
+
+</script>
+
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+    </body></html>

@@ -2,14 +2,8 @@ var app = new Vue({
   el: '#app',
   data: {
     mounted: false,
-    cards: [
-      {
-        id: 123456798900,
-      },
-      {
-        id: 123456798900,
-      },
-    ],
+    cards: [],
+    userToken: "",
     settingCard: false,
     settingCardLoading: false,
     enableCardClick: true,
@@ -27,9 +21,43 @@ var app = new Vue({
     },
   },
   methods: {
+    checkToken: function () {
+      const parts = document.cookie.split("userToken=");
+      const userToken = (parts.length == 2) ? parts.pop().split(";").shift() : '';
+      if(!userToken) document.location.href='/user/login.html';
+    },
+    getCards: function () {
+      let superThis = this;
+      $.ajax({
+        url: 'http://127.0.0.1:3000/user/cards',
+        type: 'GET',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        headers: {
+          UserToken: this.userToken
+        },
+      })
+      .done(function(data) {
+        data.result.UserCardList.forEach(function(item) {
+          superThis.cards.push({ id: item.cardNumber })
+        })
+      })
+    },
     openAddCard: function () {
       if (!this.enableCardClick) return;
       this.settingCard = true;
+
+      $.ajax({
+        url: 'http://127.0.0.1:3000/user/cards',
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({
+        }),
+        headers: {
+          UserToken: this.userToken
+        },
+      })
     },
     closeAddCard: function () {
       if (!this.enableCardClick) return;
@@ -38,6 +66,8 @@ var app = new Vue({
     },
   },
   mounted: function () {
+    this.checkToken();
+    this.getCards();
     this.mounted = true;
     var offset = $('.yy-card-empty').offset();
     var targetWidth = 600;

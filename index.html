@@ -112,7 +112,7 @@
       </div>
     </li>
     <li>
-      <div data-href="zh/device/user/menu" class="menu-item">
+      <div data-href="./user/menu.html" class="menu-item">
         <h1>
           <i class="icon-social-dribbble icons" aria-hidden="true"></i>
           <span>會員專區</span>
@@ -120,7 +120,7 @@
       </div>
     </li>
     <li>
-      <div data-href="zh/device/map" class="menu-item">
+      <div data-href="map.html" class="menu-item">
         <h1>
           <i class="icon-map icons" aria-hidden="true"></i>
           <span>站點查詢</span>
@@ -169,7 +169,12 @@
 
 
 <script type="text/javascript">
-
+  var keys = document.cookie.match(/[^ =;]+(?=\=)/g);  
+  if(keys) {  
+    for(var i = keys.length; i--;)  
+      document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()  
+  }
+  //localStorage.clear('userToken');
   $(document).ready(function(){
     $('.menu-item').click(function(){
       $('.menu-item').addClass('out');
