@@ -1,3 +1,4 @@
+/*
 var MRT = [
   {
   		"id": "030",
@@ -6,7 +7,7 @@ var MRT = [
   		"address": "115台灣台北市南港區捷運南港軟體園區站",
   		"latitude": 25.059904,
   		"longitude": 121.615952,
-      expend: false,
+      	expend: false,
   	},
   	{
   		"id": "031",
@@ -14,9 +15,9 @@ var MRT = [
   		"line": "文山內湖線",
   		"address": "115台灣台北市南港區捷運南港展覽館站",
   		"latitude": 25.055368,
-  		"longitude": 121.6176
-  ,
-expend: false,	},
+  		"longitude": 121.6176,
+		expend: false,	
+	},
   	{
   		"id": "029",
   		"name": "東湖",
@@ -856,98 +857,101 @@ expend: false,	},
   	}
   ];
 
-// map style - https://snazzymaps.com/style/61/blue-essence
-var mapStyle = [
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "color": "#e0efef"
-        }
-    ]
-  },
-  {
-    "featureType": "poi",
-    "elementType": "geometry.fill",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "hue": "#1900ff"
-        },
-        {
-            "color": "#c0e8e8"
-        }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "geometry",
-    "stylers": [
-        {
-            "lightness": 100
-        },
-        {
-            "visibility": "simplified"
-        }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
-        {
-            "visibility": "off"
-        }
-    ]
-  },
-  {
-    "featureType": "transit.line",
-    "elementType": "geometry",
-    "stylers": [
-        {
-            "visibility": "on"
-        },
-        {
-            "lightness": 700
-        }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "all",
-    "stylers": [
-        {
-            "color": "#7dcdcd"
-        }
-    ]
-  }
-];
+*/
+// var MRT = []
 
-$.fn.tinyMapConfigure({
-  // Google Maps API URL
-//   'api': '//maps.googleapis.com/maps/api/js',
-  // Google Maps API Version
-//   'v': '3.21',
-  // Google Maps API Key，預設 null
-  'key': 'AIzaSyAm3gODFIAHoqPN3RL_Z__d80hL-fD50YI',
-  // 使用的地圖語言
-//   'language': 'zh‐TW',
-  // 載入的函式庫名稱，預設 null
-//   'libraries': 'adsense,drawing,geometry...',
-  // 使用個人化的地圖，預設 false
-//   'signed_in': true|false,
-  // MarkerClustererPlus.js 路徑
-  // 預設 'https://cdn.essoduke.org/js/tinyMap/markerclusterer.js'
-  // 建議下載至自有主機，避免讀取延遲造成無法使用。
-//   'clusterer': 'path/to/markerclusterer.js',
-  // MarkerWithLabel.js 路徑
-  // 預設 'https://cdn.essoduke.org/js/tinyMap/markerwithlabel.js'
-  // 建議下載至自有主機，避免讀取延遲造成無法使用。
-//   'withLabel': '//cdn.essoduke.org/js/tinyMap/markerwithlabel.js'
-});
+// // map style - https://snazzymaps.com/style/61/blue-essence
+// var mapStyle = [
+//   {
+//     "featureType": "landscape.natural",
+//     "elementType": "geometry.fill",
+//     "stylers": [
+//         {
+//             "visibility": "on"
+//         },
+//         {
+//             "color": "#e0efef"
+//         }
+//     ]
+//   },
+//   {
+//     "featureType": "poi",
+//     "elementType": "geometry.fill",
+//     "stylers": [
+//         {
+//             "visibility": "on"
+//         },
+//         {
+//             "hue": "#1900ff"
+//         },
+//         {
+//             "color": "#c0e8e8"
+//         }
+//     ]
+//   },
+//   {
+//     "featureType": "road",
+//     "elementType": "geometry",
+//     "stylers": [
+//         {
+//             "lightness": 100
+//         },
+//         {
+//             "visibility": "simplified"
+//         }
+//     ]
+//   },
+//   {
+//     "featureType": "road",
+//     "elementType": "labels",
+//     "stylers": [
+//         {
+//             "visibility": "off"
+//         }
+//     ]
+//   },
+//   {
+//     "featureType": "transit.line",
+//     "elementType": "geometry",
+//     "stylers": [
+//         {
+//             "visibility": "on"
+//         },
+//         {
+//             "lightness": 700
+//         }
+//     ]
+//   },
+//   {
+//     "featureType": "water",
+//     "elementType": "all",
+//     "stylers": [
+//         {
+//             "color": "#7dcdcd"
+//         }
+//     ]
+//   }
+// ];
+
+// $.fn.tinyMapConfigure({
+//   // Google Maps API URL
+// //   'api': '//maps.googleapis.com/maps/api/js',
+//   // Google Maps API Version
+// //   'v': '3.21',
+//   // Google Maps API Key，預設 null
+//   'key': 'AIzaSyAvmPNE1IW6XrXEeNXkLqj7fERGyFvEtaE',
+//   // 使用的地圖語言
+// //   'language': 'zh‐TW',
+//   // 載入的函式庫名稱，預設 null
+// //   'libraries': 'adsense,drawing,geometry...',
+//   // 使用個人化的地圖，預設 false
+// //   'signed_in': true|false,
+//   // MarkerClustererPlus.js 路徑
+//   // 預設 'https://cdn.essoduke.org/js/tinyMap/markerclusterer.js'
+//   // 建議下載至自有主機，避免讀取延遲造成無法使用。
+// //   'clusterer': 'path/to/markerclusterer.js',
+//   // MarkerWithLabel.js 路徑
+//   // 預設 'https://cdn.essoduke.org/js/tinyMap/markerwithlabel.js'
+//   // 建議下載至自有主機，避免讀取延遲造成無法使用。
+// //   'withLabel': '//cdn.essoduke.org/js/tinyMap/markerwithlabel.js'
+// });

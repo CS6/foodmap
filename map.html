@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- page_registration -->
+<head>
+<title></title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="author" content="">
+<meta name="description" content="">
+
+<!-- FB OG tags -->
+<meta property="og:site_name" content="" />
+<meta property="og:locale" content="zh_TW" />
+<!--  <meta name="fb:app_id" content="144219216008720"> -->
+
+<!-- other Meta tags -->
+
+
+
+<!-- Favicon -->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="./assets/mvp/favicon.ico"> -->
+
+<!-- Web Fonts -->
+<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+<!-- CSS Global Compulsory -->
+<link rel="stylesheet" href="./assets/unify/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./assets/unify/css/style.css">
+
+<!-- CSS Header and Footer -->
+<link rel="stylesheet" href="./assets/unify/css/headers/header-default.css">
+<link rel="stylesheet" href="./assets/unify/css/footers/footer-v1.css">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="./assets/unify/plugins/animate.css">
+<link rel="stylesheet" href="./assets/unify/plugins/line-icons/line-icons.css">
+<link rel="stylesheet" href="./assets/unify/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="./assets/miapower/plugins/swiper/swiper.min.css">
+<link rel="stylesheet" href="./assets/js/plugin/sweetalert/sweetalert.css">
+
+<!-- CSS Page Style -->
+<link rel="stylesheet" href="./assets/unify/css/pages/page_log_reg_v1.css">
+
+<!-- CSS Theme -->
+<link rel="stylesheet" href="./assets/unify/css/theme-colors/default.css" id="style_color">
+<link rel="stylesheet" href="./assets/unify/css/theme-skins/dark.css">
+
+<!-- CSS Customization -->
+<link rel="stylesheet" href="./assets/unify/css/custom.css">
+<link rel="stylesheet" href="./assets/miapower/css/header.css">
+<link rel="stylesheet" href="./assets/miapower/css/footer.css">
+<link rel="stylesheet" href="./assets/miapower/css/login.css">
+<link rel="stylesheet" href="./assets/miapower/css/importer.css">
+
+<!-- CSS Page Style -->
+
+
+<!-- CSS Page Block -->
+<style type="text/css">
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div class="menu-panel map-wrapper" id="app">
+  <div class="dropdown language-chooser">
+    <a class="btn btn-default" href="/">
+      <i class="icon-home icons"></i>
+      回首頁
+    </a>
+  </div>
+
+  <div class="loc-slider">
+    <div class="loc-item" v-bind:data-idx="index" v-for="(stop, index) in stops"  v-on:click="moveTo(stop)">
+      <span><i class="icon-energy icon"></i>{{ stop.status.availableBatteries }}</span>
+      <h1>{{ stop.name }}</h1>
+    </div>
+
+
+  </div>
+
+  <div class="sub-panel map-wrapper hidden" id="app">
+  </div>
+
+  <div class="map" id="map" ></div>
+
+  <button class="btn btn-info map-btn" v-on:click="foundMe"><i class="icon-pointer icons"></i></button>
+  <div class="icon-license">Icons made by <a href="http://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+</div>
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="./assets/unify/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="./assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="./assets/unify/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="./assets/unify/plugins/smoothScroll.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="./assets/unify/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="./assets/unify/js/app.js"></script>
+<script type="text/javascript" src="./assets/unify/js/plugins/style-switcher.js"></script>
+<script type="text/javascript" src="./assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="./assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="./assets/miapower/plugins/validator.min.js"></script>
+
+<script type="text/javascript" src="./assets/miapower/plugins/jquery.tinyMap.min.js"></script>
+<script type="text/javascript" src="./assets/miapower/pages/device/map_data.js"></script>
+<script type="text/javascript" src="./assets/miapower/pages/device/map.js"></script>
+
+
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+    StyleSwitcher.initStyleSwitcher();
+  });
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<!--[if lt IE 9]>
+<script src="../../assets/unify/plugins/respond.js"></script>
+<script src="../../assets/unify/plugins/html5shiv.js"></script>
+<script src="../../assets/unify/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+<!-- JS Page Level -->
+
+
+
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+
+</body>
+</html>
