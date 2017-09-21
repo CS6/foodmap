@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- page_registration -->
+  <head>
+    <title></title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="">
+    <meta name="description" content="">
+
+    <!-- FB OG tags -->
+    <meta property="og:site_name" content="" />
+    <meta property="og:locale" content="zh_TW" />
+    <!--  <meta name="fb:app_id" content="144219216008720"> -->
+
+    <!-- other Meta tags -->
+
+
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./assets/mvp/favicon.ico"> -->
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="./assets/unify/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/unify/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="./assets/unify/css/headers/header-default.css">
+    <link rel="stylesheet" href="./assets/unify/css/footers/footer-v1.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="./assets/unify/plugins/animate.css">
+    <link rel="stylesheet" href="./assets/unify/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="./assets/unify/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/miapower/plugins/swiper/swiper.min.css">
+    <link rel="stylesheet" href="./assets/js/plugin/sweetalert/sweetalert.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="./assets/unify/css/pages/page_log_reg_v1.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="./assets/unify/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="./assets/unify/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="./assets/unify/css/custom.css">
+    <link rel="stylesheet" href="./assets/miapower/css/header.css">
+    <link rel="stylesheet" href="./assets/miapower/css/footer.css">
+    <link rel="stylesheet" href="./assets/miapower/css/login.css">
+    <link rel="stylesheet" href="./assets/miapower/css/importer.css">
+
+    <!-- CSS Page Style -->
+
+
+    <!-- CSS Page Block -->
+    <style type="text/css">
+
+    </style>
+
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+
+      <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+      <div class="menu-panel full-image-cover">
+        <div id="app">
+          <div class="row" style="margin: 15px auto 0; max-width: 942px;">
+            <div class="col-xs-3">
+              <a class="btn-u home-btn btn-u-gray" href="/">回首頁 <i class="icon-home icons"></i></a>
+            </div>
+            <div class="col-xs-9">
+              <div class="timeline" v-bind:class="{ show: mounted }">
+                <div class="row">
+                  <div class="col-xs-2 timeline-step" v-bind:class="{ 'col-xs-offset-2': (index === 0), active: (index == position), done: (index <= position) }" v-for="(step, index) in steps">
+                    <div class="timeline-icon">
+                      <i class="icon-user-follow icons" v-bind:class="step.icon" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="timeline-text">{{ step.title }}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-panel" v-bind:class="{ show: mounted }">
+            <form data-toggle="validator" class="terms-of-use-wrapper" v-bind:class="{ show: (position == 0) }">
+              <iframe class="terms-of-use" src="./termsOfService.inc.html" style="width: 100%;padding: 0px; height: 510px;"></iframe>
+              <div class="checkbox" style="margin-top: 1.6em;">
+                <label>
+                  <input type="checkbox" name="terms" required> <span>我同意以上相關條款</span>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-success next-btn" v-on:click.prevent="nextStep">下一步 <i class="icon-paper-plane icons"></i></button>
+            </form>
+
+            <form data-toggle="validator" class="input-phone-wrapper panel-form" v-bind:class="{ show: (position == 1) }">
+              <div class="form-group">
+                <label for="phone">您的手機號碼</label>
+                <input type="text" pattern="^[0-9]+$" class="form-control" v-model="phone" id="phone" name="phone" data-error="手機號碼格式錯誤" data-minlength="10" required autocomplete="off">
+                <div class="help-block with-errors"></div>
+              </div>
+              <button type="submit" class="btn btn-success" v-on:click.prevent="nextStep" style="margin-top: 1em;">發送驗證碼 <i class="icon-paper-plane icons"></i></button>
+            </form>
+
+            <form data-toggle="validator" class="input-phone-wrapper panel-form" v-bind:class="{ show: (position == 2) }">
+              <div class="form-group">
+                <label for="checkcode">pin 碼</label>
+                <input type="text" pattern="^[0-9]{4}$" class="form-control" v-model="pin" id="checkcode" name="checkcode" data-error="驗證碼格式錯誤" required autocomplete="off">
+                <div class="help-block with-errors"></div>
+              </div>
+              <button type="submit" class="btn btn-success" v-on:click.prevent="nextStep" style="margin-top: 1em;">驗證 <i class="icon-paper-plane icons"></i></button>
+            </form>
+
+            <form data-toggle="validator" class="reg-form panel-form" v-bind:class="{ show: (position == 3) }" method='post' action="/auth/local/register">
+              <input type="hidden" class="form-control" name="phone1" v-model="phone">
+              <input type="hidden" class="form-control" name="url" value="/register#4">
+              <div class="form-group">
+                <label for="person-id">身份證字號</label>
+                <input type="text" pattern="^[A-Z]{1}[1-2]{1}[0-9]{8}$" class="form-control" id="person-id" name="personalId" v-model="idNumber" data-error="身份證字號格式錯誤" required autocomplete="off">
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" v-model="email" data-error="E-mail 格式錯誤" required autocomplete="off">
+                <div class="help-block with-errors"></div>
+              </div>
+              <button class="btn btn-success" type="submit" v-on:click.prevent="register" style="margin-top: 1em;">送出完成註冊 <i class="icon-paper-plane icons"></i></button>
+            </form>
+
+            <div class="finished-info panel-form" v-bind:class="{ show: (position == 4) }">
+              <h1>註冊完成</h1>
+              <p>
+                您以成功註冊成為 Mia Power User 的一份子！！<br>歡迎您的加入，請至信箱收我們寄給您的禮物與最新使用情報
+              </p>
+              <hr style="margin-top: 33px;">
+              <div class="row">
+                <div class="col-xs-6">
+                  <a href='/' class="btn btn-u btn-u-dark btn-brd btn-block" style="margin-top: 0.6em;">回首頁 <i class="icon-home icons"></i></a>
+                </div>
+                <div class="col-xs-6">
+                  <a href='/user/card' class="btn btn-success btn-block" style="margin-top: 0.6em;">新增悠遊卡 <i class="icon-credit-card icons"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!--/wrapper-->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <!-- JS Global Compulsory -->
+    <script type="text/javascript" src="./assets/unify/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="./assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="./assets/unify/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="./assets/unify/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="./assets/unify/js/custom.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="./assets/unify/js/app.js"></script>
+    <script type="text/javascript" src="./assets/unify/js/plugins/style-switcher.js"></script>
+    <script type="text/javascript" src="./assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="./assets/miapower/plugins/validator.min.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../assets/unify/plugins/respond.js"></script>
+    <script src="../../assets/unify/plugins/html5shiv.js"></script>
+    <script src="../../assets/unify/plugins/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+    <!-- JS Page Level -->
+
+    <script type="text/javascript" src="register.js"></script>
+
+
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+
+  </body>
+</html>

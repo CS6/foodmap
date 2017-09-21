@@ -145,15 +145,15 @@
         <div id="countdown-container"></div>
       </div>
 
-      <div class="battery-info panel-form" v-bind:class="{ show: (position == 3) }">
-        <h1>本次訂單 <strong style="color: #f00;">29AD9-C9</strong> 明細</h1>
-        <p>本次租用開始時間為：<strong style="color: #f00;">2017-07-06 15:30</strong></p>
-        <p>本次租用放回時間為：<strong style="color: #f00;">2017-07-06 16:40</strong></p>
+      <div class="battery-info panel-form panel-center" v-bind:class="{ show: (position == 3) }" >
+        <h1>本次訂單 <strong style="color: #f00;">{{ rentalId }}</strong> 明細</h1>
+        <p>本次租用開始時間為：<strong style="color: #f00;">{{ formatDate(start) }}</strong></p>
+        <p>本次租用放回時間為：<strong style="color: #f00;">{{ formatDate(new Date()) }}</strong></p>
         <hr>
-        <p>總租用時間：<strong  style="color: #f00;">1小時10分</strong> <small>(3 個計費時段)</small></p>
-        <p>租金：3 時段 x 10/時段 = <strong  style="color: #f00;">NTD 30</strong></p>
+        <p>總租用時間：<strong  style="color: #f00;">{{ Math.floor(diffDate(start)/(60*60)) }}時{{ Math.floor(diffDate(start)/60%60) }}分</strong> <small>({{ Math.floor(diffDate(start)/10) }} 個計費時段)</small></p>
+        <p>租金：{{ Math.floor(diffDate(start)/10) }} 時段 x 10/時段 = <strong  style="color: #f00;">NTD {{ Math.floor(diffDate(start)/10) * 30 }}</strong></p>
         <p>折扣：試營運免費 - NTD 30</p>
-        <p>應付金額： <strong  style="color: #f00;">NTD 0</strong></p>
+        <p>應付金額： <strong  style="color: #f00;">NTD {{ (Math.floor(diffDate(start)/10) * 30) - 30 }}</strong></p>
         <hr>
         <button disabled class="btn">使用一卡通靠卡付款</button>
         <button class="btn size-lg color-success" v-on:click.prevent="goDone">完成結帳</button>
@@ -161,16 +161,16 @@
       </div>
 
       <div class="finished-info panel-form" v-bind:class="{ show: (position == 4) }">
-          <h1>本次訂單 <strong style="color: #f00;">29AD9-C9</strong> 已成功歸還</h1>
+          <h1>本次訂單 <strong style="color: #f00;">{{ rentalId }}</strong> 已成功歸還</h1>
             <hr>
             <h2>租用資訊</h2>
-            <p>本次租用開始時間為：<strong style="color: #f00;">2017-07-03 15:30</strong></p>
-            <p>本次租用放回時間為：<strong style="color: #f00;">2017-07-03 16:40</strong></p>
+            <p>本次租用開始時間為：<strong style="color: #f00;">{{ formatDate(start) }}</strong></p>
+            <p>本次租用放回時間為：<strong style="color: #f00;">{{ formatDate(new Date()) }}</strong></p>
             <br>
-            <p>總租用時間：<strong>1小時10分</strong> <small>(3 個計費時段)</small></p>
-            <p>租金：3 時段 x 10/時段 = <strong>NTD 60</strong></p>
+            <p>總租用時間：<strong>{{ Math.floor(diffDate(start)/(60*60)) }}時{{ Math.floor(diffDate(start)/60%60) }}分</strong> <small>({{ Math.floor(diffDate(start)/10) }} 個計費時段)</small></p>
+            <p>租金：{{ Math.floor(diffDate(start)/10) }} 時段 x 10/時段 = <strong>NTD {{ Math.floor(diffDate(start)/10) * 30 }}</strong></p>
             <p>折扣：試營運免費 - NTD 30</p>
-            <p>應付金額： NTD 0</p>
+            <p>應付金額： NTD {{ (Math.floor(diffDate(start)/10) * 30) - 30 }}</p>
             <hr>
             <p>發票號碼：<span style="color: #f00;">(本次為零元帳單，無發票產生)</span></p>
             <p>(若有非零元金額，我們將會開立電子發票並寄至您的電子郵件信箱)</p>
