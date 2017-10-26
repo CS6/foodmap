@@ -1,192 +1,244 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)./zh/device/ -->
-<html lang="en"><!--<![endif]--><!-- page_registration --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Mia Station</title>
+<html lang="en">
+<!--<![endif]-->
+<!-- page_registration -->
 
-<!-- Meta -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mia Station</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="author" content="">
-<meta name="description" content="">
+    <!-- Meta -->
 
-<!-- FB OG tags -->
-<meta property="og:site_name" content="">
-<meta property="og:locale" content="zh_TW">
-<!--  <meta name="fb:app_id" content="144219216008720"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="">
+    <meta name="description" content="">
 
-<!-- other Meta tags -->
-<!-- Favicon -->
-<!-- <link rel="shortcut icon" type="image/x-icon" href="assets/mvp/favicon.ico"> -->
+    <!-- FB OG tags -->
+    <meta property="og:site_name" content="">
+    <meta property="og:locale" content="zh_TW">
+    <!--  <meta name="fb:app_id" content="144219216008720"> -->
 
-<!-- Web Fonts -->
-<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <!-- other Meta tags -->
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/mvp/favicon.ico"> -->
 
-<!-- CSS Global Compulsory -->
-<link rel="stylesheet" href="assets/unify/plugins/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/unify/css/style.css">
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
-<!-- CSS Header and Footer -->
-<link rel="stylesheet" href="assets/unify/css/headers/header-default.css">
-<link rel="stylesheet" href="assets/unify/css/footers/footer-v1.css">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/unify/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/unify/css/style.css">
 
-<!-- CSS Implementing Plugins -->
-<link rel="stylesheet" href="assets/unify/plugins/animate.css">
-<link rel="stylesheet" href="assets/unify/plugins/line-icons/line-icons.css">
-<link rel="stylesheet" href="assets/unify/plugins/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/miapower/plugins/swiper/swiper.min.css">
-<link rel="stylesheet" href="assets/js/plugin/sweetalert/sweetalert.css">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/unify/css/headers/header-default.css">
+    <link rel="stylesheet" href="assets/unify/css/footers/footer-v1.css">
 
-<!-- CSS Page Style -->
-<link rel="stylesheet" href="assets/unify/css/pages/page_log_reg_v1.css">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/unify/plugins/animate.css">
+    <link rel="stylesheet" href="assets/unify/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/unify/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/miapower/plugins/swiper/swiper.min.css">
+    <link rel="stylesheet" href="assets/js/plugin/sweetalert/sweetalert.css">
 
-<!-- CSS Theme -->
-<link rel="stylesheet" href="assets/unify/css/theme-colors/default.css" id="style_color">
-<link rel="stylesheet" href="assets/unify/css/theme-skins/dark.css">
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="assets/unify/css/pages/page_log_reg_v1.css">
 
-<!-- CSS Customization -->
-<link rel="stylesheet" href="assets/unify/css/custom.css">
-<link rel="stylesheet" href="assets/miapower/css/header.css">
-<link rel="stylesheet" href="assets/miapower/css/footer.css">
-<link rel="stylesheet" href="assets/miapower/css/login.css">
-<link rel="stylesheet" href="assets/miapower/css/importer.css">
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="assets/unify/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="assets/unify/css/theme-skins/dark.css">
 
-<!-- CSS Page Style -->
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/unify/css/custom.css">
+    <link rel="stylesheet" href="assets/miapower/css/header.css">
+    <link rel="stylesheet" href="assets/miapower/css/footer.css">
+    <link rel="stylesheet" href="assets/miapower/css/login.css">
+    <link rel="stylesheet" href="assets/miapower/css/importer.css">
+
+    <!-- CSS Page Style -->
 
 
-<!-- CSS Page Block -->
-<style type="text/css">
-    .menu-panel .logo h1 {
-      font-size: 4em;
-      text-transform: none;
-      font-family: 'Braggadocio', Arial;
- }
-</style>
+    <!-- CSS Page Block -->
+    <style type="text/css">
+        .menu-panel .logo h1 {
+            font-size: 4em;
+            text-transform: none;
+            font-family: 'Braggadocio', Arial;
+        }
+        
+        .menu-panel {
+            background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/E.jpg");
+            animation: background 15s infinite;
+        }
+        
+        @keyframes background {
+            0% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/A.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            20% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/A.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            40% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/B.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            60% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/C.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            80% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/D.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            100% {
+                background: linear-gradient( -68deg, rgba(182, 255, 205, 0.35) 0%, rgba(182, 255, 205, 0.52) 40%, rgba(255, 255, 255, 0.19) 45%, rgba(251, 251, 251, 0.12) 50%), url("/assets/miapower/images/onechine/E.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
 
 
 </head>
 
 <body>
 
-<div class="wrapper">
+    <div class="wrapper">
 
 
 
-  <div class="menu-panel">
-  <div class="dropdown language-chooser">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        <div class="menu-panel">
+            <div class="dropdown language-chooser">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
       <i class="fa fa-globe"></i>
       Languages
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="zh/device/#">English</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="zh/device/#">Chinese</a></li>
-    </ul>
-  </div>
-  <div class="logo">
-    <h1>Mia Power</h1>
-  </div>
-  <ul class="menu-list">
-    <li>
-      <div data-href="rent.html" class="menu-item">
-        <h1>
-          <i class="icon-handbag icons" aria-hidden="true"></i>
-          <span>租借</span>
-        </h1>
-      </div>
-    </li>
-    <li>
-      <div data-href="return.html" class="menu-item">
-        <h1>
-          <i class="icon-action-redo icons" aria-hidden="true"></i>
-          <span>歸還</span>
-        </h1>
-      </div>
-    </li>
-    <li>
-      <div data-href="register.html" class="menu-item">
-        <h1>
-          <i class="icon-user-follow icons" aria-hidden="true"></i>
-          <span>成為會員</span>
-        </h1>
-      </div>
-    </li>
-    <li>
-      <div data-href="./user/menu.html" class="menu-item">
-        <h1>
-          <i class="icon-social-dribbble icons" aria-hidden="true"></i>
-          <span>會員專區</span>
-        </h1>
-      </div>
-    </li>
-    <li>
-      <div data-href="map.html" class="menu-item">
-        <h1>
-          <i class="icon-map icons" aria-hidden="true"></i>
-          <span>站點查詢</span>
-        </h1>
-      </div>
-    </li>
-  </ul>
-</div>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="zh/device/#">English</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="zh/device/#">Chinese</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <h1>Mia Power</h1>
+            </div>
+            <ul class="menu-list" style="padding-left: 75%">
+                <li>
+                    <div data-href="rent.html" class="menu-item">
+                        <h1>
+                            <i class="icon-handbag icons" aria-hidden="true"></i>
+                            <span>分享店家</span>
+                        </h1>
+                    </div>
+                </li>
+                <li>
+                    <div data-href="return.html" class="menu-item">
+                        <h1>
+                            <i class="icon-action-redo icons" aria-hidden="true"></i>
+                            <span>店家管理</span>
+                        </h1>
+                    </div>
+                </li>
+                <li>
+                    <div data-href="register.html" class="menu-item">
+                        <h1>
+                            <i class="icon-user-follow icons" aria-hidden="true"></i>
+                            <span>成為會員</span>
+                        </h1>
+                    </div>
+                </li>
+                <li>
+                    <div data-href="./user/menu.html" class="menu-item">
+                        <h1>
+                            <i class="icon-social-dribbble icons" aria-hidden="true"></i>
+                            <span>會員專區</span>
+                        </h1>
+                    </div>
+                </li>
+                <li>
+                    <div data-href="map.html" class="menu-item">
+                        <h1>
+                            <i class="icon-map icons" aria-hidden="true"></i>
+                            <span>吃飯地圖</span>
+                        </h1>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
 
 
 
 
-</div><!--/wrapper-->
+    </div>
+    <!--/wrapper-->
     <!-- Insert this line above script imports  -->
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
 
-<!-- JS Global Compulsory -->
-<script type="text/javascript" src="assets/unify/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!-- JS Implementing Plugins -->
-<script type="text/javascript" src="assets/unify/plugins/back-to-top.js"></script>
-<script type="text/javascript" src="assets/unify/plugins/smoothScroll.js"></script>
-<!-- JS Customization -->
-<script type="text/javascript" src="assets/unify/js/custom.js"></script>
-<!-- JS Page Level -->
-<script type="text/javascript" src="assets/unify/js/app.js"></script>
-<script type="text/javascript" src="assets/unify/js/plugins/style-switcher.js"></script>
-<script type="text/javascript" src="assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="assets/miapower/plugins/validator.min.js"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    App.init();
-    StyleSwitcher.initStyleSwitcher();
-  });
-</script>
-<!--[if lt IE 9]>
+    <!-- JS Global Compulsory -->
+    <script type="text/javascript" src="assets/unify/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/unify/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="assets/unify/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="assets/unify/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="assets/unify/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="assets/unify/js/custom.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="assets/unify/js/app.js"></script>
+    <script type="text/javascript" src="assets/unify/js/plugins/style-switcher.js"></script>
+    <script type="text/javascript" src="assets/miapower/plugins/swiper/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="assets/miapower/plugins/validator.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            App.init();
+            StyleSwitcher.initStyleSwitcher();
+        });
+    </script>
+    <!--[if lt IE 9]>
 <script src="../../assets/unify/plugins/respond.js"></script>
 <script src="../../assets/unify/plugins/html5shiv.js"></script>
 <script src="../../assets/unify/plugins/placeholder-IE-fixes.js"></script>
 <![endif]-->
-<!-- JS Page Level -->
+    <!-- JS Page Level -->
 
 
 
-<script type="text/javascript">
-  var keys = document.cookie.match(/[^ =;]+(?=\=)/g);  
-  if(keys) {  
-    for(var i = keys.length; i--;)  
-      document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()  
-  }
-  //localStorage.clear('userToken');
-  $(document).ready(function(){
-    $('.menu-item').click(function(){
-      $('.menu-item').addClass('out');
-      setTimeout(function () {
-        open($(this).data('href'), '_self');
-      }.bind(this),300);
-    });
-  });
-
-</script>
+    <script type="text/javascript">
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if (keys) {
+            for (var i = keys.length; i--;)
+                document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+        }
+        //localStorage.clear('userToken');
+        $(document).ready(function() {
+            $('.menu-item').click(function() {
+                $('.menu-item').addClass('out');
+                setTimeout(function() {
+                    open($(this).data('href'), '_self');
+                }.bind(this), 300);
+            });
+        });
+    </script>
 
 
     <!-- Insert this line after script imports -->
-    <script>if (window.module) module = window.module;</script>
-    </body></html>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</body>
+
+</html>

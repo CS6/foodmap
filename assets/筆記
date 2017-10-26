@@ -1,0 +1,46 @@
+  mounted: function() {
+        const self = this;
+        console.log(this);
+        $('#map').tinyMap({
+            'center': '台北市信義區台北101',
+            'zoom': 15,
+            'autoLocation': function(loc) {
+                self.position.lat = loc.coords.latitude;
+                self.position.lng = loc.coords.longitude;
+            },
+            // 'autoLocation': true,
+            'mapTypeControlOptions': {
+                'styles': mapStyle,
+            },
+            disableDefaultUI: true,
+            'event': {
+                'idle': this.mapLoaded
+            }
+        });
+    },
+});
+
+
+       /////////
+        scrollToStop: function(idx) {
+            var item = $('.loc-slider .loc-item[data-idx=' + idx + ']');
+            var itemOffsetTop = item.offset().top;
+            $('.loc-slider').animate({
+                scrollTop: itemOffsetTop + $('.loc-slider').scrollTop() - 50
+            }, 300);
+        }
+
+//////////////////////
+         <div class="loc-slider">
+            <div class="loc-item" v-bind:data-idx="index" v-for="(stop, index) in stops" v-on:click="moveTo(stop)">
+                <span><i class="icon-energy icon"></i>{{ stop.status.availableBatteries }}</span>
+                <h1>{{ stop.name }}</h1>
+            </div>
+
+            ////////////////////////////////////////////////////
+
+               <div class="loc-slider">
+            <div class="loc-item" v-bind:data-idx="index" v-for="(stop, index) in stops" v-on:click="moveTo(stop)">
+                <span><i class="icon-energy icon"></i>{{ stop.status.availableBatteries }}</span>
+                <h1>{{ stop.name }}</h1>
+            </div>
