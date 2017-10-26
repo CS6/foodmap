@@ -1,5 +1,5 @@
-# miapower-kiosk-ui
-
+# FoodMap-ui
+由一群吃貨發起的地圖專案
 
 ## 系統需求
 
